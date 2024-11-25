@@ -1,0 +1,21 @@
+// /components/Header.js
+import React from "react";
+import "../styles/Header.css";
+
+const Header = () => {
+  return (
+    <header className="header">
+      <div className="header-content">
+        <h1>PlushPalletStudio</h1>
+        <p>Crafting Visual Experiences</p>
+      </div>
+      <div className="header-flower">
+        {Array.from({ length: 9 }).map((_, index) => (
+          <div className="bud" key={index}></div>
+        ))}
+      </div>
+    </header>
+  );
+};
+
+export default Header;
