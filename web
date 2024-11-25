@@ -19,3 +19,247 @@ const Header = () => {
 };
 
 export default Header;
+/* /styles/Header.css */
+.header {
+  text-align: center;
+  background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+  padding: 3rem 1rem;
+}
+
+.header-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.header-content p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.header-flower {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.bud {
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #ff5f95, #ff8ab8);
+  border-radius: 50%;
+}
+// /components/Services.js
+import React from "react";
+import ServicePetal from "./ServicePetal";
+import "../styles/Services.css";
+
+const Services = () => {
+  const services = [
+    {
+      title: "Brand Alchemy",
+      petals: [
+        "Crafting brands that inspire and captivate.",
+        "Designing timeless logos and brand identities.",
+        "Curating compelling visuals for brand storytelling.",
+      ],
+    },
+    {
+      title: "AR/VR Marketing Services",
+      petals: [
+        "Transforming marketing with AR/VR experiences.",
+        "Storytelling in augmented and virtual spaces.",
+        "Pushing boundaries of interaction and engagement.",
+      ],
+    },
+    {
+      title: "360-Degree Marketing Services",
+      petals: [
+        "Unified strategies for every platform.",
+        "Comprehensive campaigns that connect all dots.",
+        "Engaging audiences from every angle.",
+      ],
+    },
+  ];
+
+  return (
+    <section className="services">
+      {services.map((service, index) => (
+        <div className="service" key={index}>
+          <h2>{service.title}</h2>
+          <div className="petals">
+            {service.petals.map((text, i) => (
+              <ServicePetal key={i} text={text} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+  );
+};
+
+export default Services;
+/* /styles/Services.css */
+.services {
+  padding: 2rem;
+  text-align: center;
+}
+
+.service {
+  margin-bottom: 3rem;
+}
+
+.service h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.petals {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+// /components/ServicePetal.js
+import React from "react";
+import "../styles/ServicePetal.css";
+
+const ServicePetal = ({ text }) => {
+  return (
+    <div className="petal">
+      <p>{text}</p>
+    </div>
+  );
+};
+
+export default ServicePetal;
+/* /styles/ServicePetal.css */
+.petal {
+  width: 120px;
+  height: 160px;
+  background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+  clip-path: ellipse(50% 80% at 50% 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #333;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+// /components/Footer.js
+import React from "react";
+import "../styles/Footer.css";
+
+const Footer = () => {
+  return (
+    <footer className="footer">
+      <div className="contact-us">
+        <h2>Contact Us</h2>
+        <p>Phone: <a href="tel:964201403">964201403</a></p>
+        <p>Email: <a href="mailto:connect@plushpalletstudio">connect@plushpalletstudio</a></p>
+        <form>
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+      <p>© 2024 PlushPalletStudio. All rights reserved.</p>
+    </footer>
+  );
+};
+
+export default Footer;
+/* /styles/Footer.css */
+.footer {
+  background: radial-gradient(circle, #ee9ca7, #ffdde1);
+  padding: 2rem;
+  text-align: center;
+  color: #333;
+}
+
+.contact-us {
+  margin-bottom: 2rem;
+}
+
+.contact-us h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.contact-us p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+.contact-us a {
+  color: #ff5f95;
+  text-decoration: none;
+}
+
+.contact-us a:hover {
+  text-decoration: underline;
+}
+
+.contact-us form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.contact-us input,
+.contact-us textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-us button {
+  padding: 10px 15px;
+  background: #ff8ab8;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-us button:hover {
+  background: #ff5f95;
+}
+// /App.js
+import React from "react";
+import Header from "./components/Header";
+import Services from "./components/Services";
+import Footer from "./components/Footer";
+import "./App.css";
+
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <Services />
+      <Footer />
+    </div>
+  );
+};
+
+export default App;
+/* /App.css */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff5f8;
+  color: #333;
+}
+
+h1,
+h2 {
+  font-family: "Georgia", serif;
+}
